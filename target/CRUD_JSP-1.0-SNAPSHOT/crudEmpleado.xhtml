@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile"
+      >
+    <f:view renderKitId="PRIMEFACES_MOBILE"/>
+    <h:head>
+        <title>Empleado CRUD</title>
+    </h:head>
+    <h:body>
+        <h:form id="miFormulario">
+            <p:growl id="miMsg" showDetail="true" sticky="true" /> 
+            <span>
+                <p:outputLabel id="lblClave" for="txtClave" value="Clave" />
+                <p:inputText id="txtClave" value="#{empBean.emp.clave}" />
+            </span>
+            <br/>
+            <span>
+                <p:outputLabel id="lblNombre" for="txtNombre" value="Nombre" />
+                <p:inputText id="txtNombre" value="#{empBean.emp.nombre}" />
+            </span>
+            <br/>
+            <span>
+                <p:outputLabel id="lblDireccion" for="txtDireccion" value="Direccion" />
+                <p:inputText id="txtDireccion" value="#{empBean.emp.direccion}" />
+            </span>
+
+            <br/>
+            <span>
+                <p:outputLabel id="lblTelefono" for="txtTelefono" value="Telefono" />
+                <p:inputText id="txtTelefono" value="#{empBean.emp.telefono}" />
+            </span>
+            <br/>
+            <br/>
+            <p:commandButton value="Consultar Todos" action="#{empBean.consultarTodos()}" update="tabla" />
+            <p:commandButton value="Consultar ID" action="#{empBean.consultarId()}" update="tabla" />
+            <p:commandButton value="Nuevo" action="#{empBean.save()}" update="miFormulario" />
+            <p:commandButton value="Eliminar" action="#{empBean.eliminar()}" update="miFormulario" />
+            <p:commandButton value="Actualizar" action="#{empBean.actualizar()}" update="miFormulario" />
+            <br/>
+            <br/>
+            <p:dataTable id = "tabla" var="empleados" value="#{empBean.arrayEmpleados}">
+                <p:column headerText="Clave">
+                    <h:outputText value="#{empleados.clave}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{empleados.nombre}" />
+                </p:column>
+                <p:column headerText="Direccion">
+                    <h:outputText value="#{empleados.direccion}" />
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{empleados.telefono}" />
+                </p:column>
+            </p:dataTable>
+            <br/>
+            <p:commandButton value="Departamentos CRUD" action="crudDepartamento" ajax="false"/>
+            <br/>
+            <br/>
+            <p:commandButton value="Logout" action="#{loginBean.logout()}" ajax="false"/>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,12 @@
+com\beans\DepaBean.class
+com\models\AuthorizationFilter.class
+com\models\SessionUtils.class
+com\models\DepartamentosModel.class
+com\models\EmpleadosModel.class
+com\beans\LoginBean.class
+com\beans\EmpBean.class
+com\models\UsuariosModel.class
+entidades\Departamento.class
+entidades\Usuario.class
+com\models\HibernateUtil.class
+entidades\Empleado.class
